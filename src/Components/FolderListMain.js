@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import './FolderListMain.css'
 
 const FolderListMain = (props) => {
     const folderLinks = props.folders.map((folder) => {
