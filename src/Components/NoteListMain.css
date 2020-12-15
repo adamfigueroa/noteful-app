@@ -1,0 +1,7 @@
+.noteViewBox {
+    display: flex;
+    justify-content: stretch;
+    flex-grow: 2;
+    background-color: white;
+    border-radius: 15px;
+}

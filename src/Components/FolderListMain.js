@@ -16,7 +16,7 @@ const FolderListMain = (props) => {
     return (
         <div className="folderList">
             {folderLinks}
-            <button>Add Folder</button>
+            <button className="folderListBtn">Add Folder</button>
         </div>
     )
 }

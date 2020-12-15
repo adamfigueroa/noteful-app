@@ -1,0 +1,44 @@
+.sideBarBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.folderList {
+    display: flex;
+    flex-direction: column;
+}
+
+.folderLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 105px;
+    margin: 0 auto;
+    margin-right: 10px;
+    margin-top: 50px;
+    position: relative;
+    background-color: #2a9d8f;
+    border-radius: 0 6px 6px 6px;
+    text-align: center;
+}
+
+.folderLink:before {
+    content: '';
+    width: 50%;
+    height: 12px;
+    border-radius: 0 20px 0 0;
+    background-color: #2a9d8f;
+    position: absolute;
+    top: -12px;
+    left: 0px;
+}
+
+.folderLink:hover {
+    color: white;
+    background-color: black;
+}
+
+.folderListBtn {
+    margin-top: 15px;
+}

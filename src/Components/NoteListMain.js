@@ -1,6 +1,7 @@
 import React from 'react'
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
+import './NoteListMain.css'
 
 const NoteListMain = (props) => {
     let notes = props.notes.map((note) => {

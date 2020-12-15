@@ -2,6 +2,6 @@
     display: flex;
 }
 
-.noteViewBox {
-    flex-grow: 2;
+html {
+    background-color: #264653;
 }

@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-// Add functionality to load mainpage onCLick
+import './Header.css'
 
 const Header = () => {
     return (
         <header className="headerBox">
-            <h1 className="headerText">
-                <Link to="/">Noteful</Link>
+            <h1>
+                <Link to="/" className="headerText">Noteful</Link>
             </h1>
         </header>
     )
