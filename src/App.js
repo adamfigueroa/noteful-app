@@ -5,6 +5,7 @@ import FolderListMain from "./Components/FolderListMain";
 import NoteListMain from "./Components/NoteListMain";
 import FolderSideBar from "./Components/FolderSideBar";
 import NoteSideBar from "./Components/NoteSideBar"
+import FolderMain from './Components/FolderMain'
 
 class App extends Component{
   state = {
@@ -136,6 +137,7 @@ class App extends Component{
          </section>
          <section className="noteViewBox">
          <Route path="/" exact component={() => <NoteListMain notes={this.state.notes}/> } />
+         <Route path="/folder/:folderId" component={(props) => <FolderMain notes={this.state.notes} {...props}/> } />
          </section>
         </div>
       </main>
