@@ -1,18 +1,8 @@
-.sideBarBox {
-    display: flex;
-    flex-direction: column;
-}
-
-.folderList {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-
-.folderLink {
+.noteSideBar {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 150px;
     height: 105px;
     margin: 0 auto;
@@ -24,7 +14,7 @@
     text-align: center;
 }
 
-.folderLink:before {
+.noteSideBar:before {
     content: '';
     width: 50%;
     height: 12px;
@@ -33,13 +23,4 @@
     position: absolute;
     top: -12px;
     left: 0px;
-}
-
-.folderLink:hover {
-    color: white;
-    background-color: black;
-}
-
-.folderListBtn {
-    margin-top: 15px;
 }

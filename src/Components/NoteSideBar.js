@@ -1,4 +1,5 @@
 import React from 'react';
+import "./NoteSideBar.css"
 
 function NoteSideBar(props) {
     let currentNoteId = props.match.params.noteId;
@@ -8,8 +9,8 @@ function NoteSideBar(props) {
 
     return (
         <div className="noteSideBar">
-            <button onClick={() => props.history.goBack()}>Back</button>
             <h2>{currentFolder.name}</h2>
+            <button onClick={() => props.history.goBack()}>Back</button>
         </div>
     )
 };

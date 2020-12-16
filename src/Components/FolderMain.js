@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
+import "./FolderMain.css"
 
 function FolderMain(props) {
     let folderId = props.match.params.folderId;
@@ -21,9 +22,9 @@ function FolderMain(props) {
             </li>
         )
     })
-    
+
     return (
-        <div>
+        <div className="noteBox">
             <ul className="noteList">
                 {notes}
             </ul>

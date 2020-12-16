@@ -1,0 +1,7 @@
+.detailedNote {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}

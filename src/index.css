@@ -5,3 +5,7 @@
 html {
     background-color: #264653;
 }
+
+a {
+    text-decoration: none;
+}

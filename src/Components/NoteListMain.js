@@ -22,7 +22,7 @@ const NoteListMain = (props) => {
     })
 
     return (
-        <div>
+        <div className="noteBox">
             <ul className="noteList">
                 {notes}
             </ul>
