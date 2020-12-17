@@ -1,23 +1,29 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import AppContext from "../AppContext";
 
-const FolderSideBar = (props) => {
-    const folderLinks = props.folders.map((folder) => {
-        return (
-            <NavLink
-            key={folder.id}
-            to={`/folder/${folder.id}`}
-            className="folderLink"
-            activeClassName="selected">{folder.name}</NavLink>
-        )
-    })
-
-    return (
+const FolderSideBar = () => {
+  return (
+    <AppContext.Consumer>
+      {({ folders }) => (
         <div className="folderList">
-            {folderLinks}
-            <button className="folderListBtn">Add Folder</button>
+          {folders.map((folder) => {
+            return (
+              <NavLink
+                key={folder.id}
+                to={`/folder/${folder.id}`}
+                className="folderLink"
+                activeClassName="selected"
+              >
+                {folder.name}
+              </NavLink>
+            );
+          })}
+          <button className="folderListBtn">Add Folder</button>
         </div>
-    )
-}
+      )}
+    </AppContext.Consumer>
+  );
+};
 
-export default FolderSideBar
+export default FolderSideBar;

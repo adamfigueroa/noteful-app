@@ -1,24 +1,29 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import AppContext from '../AppContext';
 import './FolderListMain.css'
 
-const FolderListMain = (props) => {
-    const folderLinks = props.folders.map((folder) => {
-        return (
-            <NavLink
-            key={folder.id}
-            to={`/folder/${folder.id}`}
-            className="folderLink"
-            activeClassName="selected">{folder.name}</NavLink>
-        )
-    })
-
+const FolderListMain = () => {
     return (
-        <div className="folderList">
-            {folderLinks}
+      <AppContext.Consumer>
+        {({ folders }) => (
+          <div className="folderList">
+            {folders.map((folder) => {
+              return (
+                <Link
+                  key={folder.id}
+                  to={`/folder/${folder.id}`}
+                  className="folderLink"
+                >
+                  {folder.name}
+                </Link>
+              );
+            })}
             <button className="folderListBtn">Add Folder</button>
-        </div>
-    )
-}
-
-export default FolderListMain
+          </div>
+        )}
+      </AppContext.Consumer>
+    );
+  };
+  
+  export default FolderListMain;

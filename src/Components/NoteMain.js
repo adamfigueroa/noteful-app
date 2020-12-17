@@ -1,12 +1,38 @@
-import React from "react";
+import React, { Component } from "react";
 import { format } from "date-fns";
+import AppContext from "../AppContext";
 import "./NoteMain.css"
 
-function NoteMain(props) {
-  const noteId = props.match.params.noteId;
-  let note = props.notes.filter((note) => note.id === noteId);
-  note = note[0];
-  console.log(noteId);
+
+class NoteMain extends Component {
+  static contextType= AppContext
+
+  handleDelete = (noteId) => {
+    const urlDelete = `http://localhost:9090/notes/${noteId}`;
+    fetch(urlDelete, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        } else {
+          this.context.handleDelete(noteId);
+        }
+      })
+      .catch((error) => console.log(error));
+  };
+
+  render() {
+    const { notes } = this.context
+  const noteId = this.props.match.params.noteId;
+  let note = notes.find((note) => note.id === noteId) || {
+    id: noteId,
+    modified: Date.now(),
+  };
+
   let date = new Date(note.modified);
   let dateNormalizer = format(date, "do LLL yyyy");
 
@@ -19,9 +45,9 @@ function NoteMain(props) {
         <p>Last change: {dateNormalizer}</p>
       </div>
       <div className="noteDetail">{note.content}</div>
-      <button>Delete</button>
+      <button onClick={() => this.handleDelete(note.id)}>Delete</button>
     </section>
   );
 }
-
+}
 export default NoteMain;
