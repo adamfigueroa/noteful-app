@@ -8,6 +8,8 @@ import NoteSideBar from "./Components/NoteSideBar";
 import FolderMain from "./Components/FolderMain";
 import NoteMain from "./Components/NoteMain";
 import AppContext from "./AppContext";
+import AddFolder from "./Components/AddFolder";
+import AddNote from "./Components/AddNote";
 
 class App extends Component {
   state = {
@@ -24,7 +26,10 @@ class App extends Component {
         }
         throw new Error(response.status);
       })
-      .then((data) => this.setState({ folders: data }));
+      .then((data) => {
+        this.setState({ folders: data });
+      })
+      .catch((error) => console.log(error.message));
   };
 
   fetchNotes = () => {
@@ -36,12 +41,23 @@ class App extends Component {
         }
         throw new Error(response.status);
       })
-      .then((data) => this.setState({ notes: data }));
+      .then((data) => {
+        this.setState({ notes: data });
+      })
+      .catch((error) => console.log(error.message));
   };
 
-  handleDelete = (noteId) => {
+  handleDeleteNote = (noteId) => {
     let filteredNotes = this.state.notes.filter((note) => note.id !== noteId);
     this.setState({ notes: filteredNotes });
+  };
+
+  handleAddFolder = (folder) => {
+    this.setState({ folders: [...this.state.folders, folder] });
+  };
+
+  handleAddNote = (note) => {
+    this.setState({ notes: [...this.state.notes, note] });
   };
 
   componentDidMount() {
@@ -57,9 +73,14 @@ class App extends Component {
           value={{
             folders: this.state.folders,
             notes: this.state.notes,
-            handleDelete: this.handleDelete,
+            handleDeleteNote: this.handleDeleteNote,
+            handleAddFolder: this.handleAddFolder,
+            handleAddNote: this.handleAddNote,
           }}
         >
+          <Switch>
+          <Route path="/addFolder" exact component={AddFolder} />
+          <Route path="/addNote" exact component={AddNote} />
           <div className="bodyBox">
             <section className="sideBarBox">
               <Route path="/" exact component={FolderListMain} />
@@ -74,6 +95,7 @@ class App extends Component {
               </Switch>
             </section>
           </div>
+          </Switch>
         </AppContext.Provider>
       </main>
     );

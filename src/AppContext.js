@@ -1,11 +1,11 @@
-import React from "react"
+import React, { createContext } from "react"
 
-const AppContext = React.createContext({
+const AppContext = createContext({
     folders: [],
     notes: [],
-    handleDelete: () => {},
-    addFolder: () => {},
-    addNote: () => {},
+    handleDeleteNote: () => {},
+    handleAddFolder: () => {},
+    handleAddNote: () => {},
 });
 
 AppContext.displayName = 'AppContext';
