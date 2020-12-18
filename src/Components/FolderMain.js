@@ -7,7 +7,7 @@ import "./FolderMain.css";
 class FolderMain extends Component {
   static contextType = AppContext;
 
-  handleDelete = (noteId) => {
+  handleDeleteNote = (noteId) => {
     const urlDelete = `http://localhost:9090/notes/${noteId}`;
     fetch(urlDelete, {
       method: "DELETE",
@@ -35,15 +35,14 @@ class FolderMain extends Component {
 
       return (
         <li className="note" key={note.id}>
-          <div>
-            <h2>
+          <div className="noteItem">
+            <h2 className="noteName">
               <Link to={`/note/${note.id}`}>
                 {note.name}
               </Link>
             </h2>
-            
             <p>Last change: {dateNormalizer}</p>
-            <button onClick={() => this.handleDelete(note.id)}>Delete</button>
+            <button className="deleteNoteBtn" onClick={() => this.handleDeleteNote(note.id)}>Delete</button>
           </div>
         </li>
       );

@@ -1,14 +1,44 @@
 .detailedNote {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  min-width: 100%;
 }
 
 .noteDetail {
-    background-color: #f4a261;
-    padding: 10px;
-    border-radius: 15px;
-    margin-bottom: 10px;
+  background-color: #f4a261;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-right: 30px;
+}
+
+.noteTitle {
+    color: white;
+}
+
+.noteInfo {
+  margin-right: 20px;
+}
+
+.deleteBtn {
+  border: none;
+  background: #ff7a59;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 500ms ease;
+  margin-top: 10px;
+}
+
+.deleteBtn:hover {
+  color: #ff7a59;
+  border: #ff7a59 solid 1px;
+  background: #fff;
 }

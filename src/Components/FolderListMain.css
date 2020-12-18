@@ -1,47 +1,64 @@
 .sideBarBox {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .folderList {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
 .folderLink {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 100%;
-    max-height: 105px;
-    min-height: 40px;
-    margin: 0 auto;
-    margin-right: 10px;
-    margin-top: 50px;
-    position: relative;
-    background-color: #2a9d8f;
-    border-radius: 0 6px 6px 6px;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  max-height: 105px;
+  min-height: 40px;
+  margin: 0 auto;
+  margin-right: 10px;
+  margin-top: 50px;
+  position: relative;
+  background-color: #2a9d8f;
+  color: white;
+  border-radius: 0 6px 6px 6px;
+  text-align: center;
 }
 
 .folderLink:before {
-    content: '';
-    width: 50%;
-    max-height: 12px;
-    min-height: 6px;
-    border-radius: 0 20px 0 0;
-    background-color: #2a9d8f;
-    position: absolute;
-    top: -12px;
-    left: 0px;
+  content: "";
+  width: 50%;
+  max-height: 12px;
+  min-height: 6px;
+  border-radius: 0 20px 0 0;
+  background-color: #2a9d8f;
+  position: absolute;
+  top: -12px;
+  left: 0px;
 }
 
 .folderLink:hover {
-    color: white;
-    background-color: black;
+  color: #2a9d8f;
+  border: solid #2a9d8f 1px;
+  background-color: white;
 }
 
 .folderListBtn {
-    margin-top: 15px;
+  border: none;
+  background: #ff7a59;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 500ms ease;
+  margin-top: 30px;
+}
+
+.folderListBtn:hover {
+  color: #ff7a59;
+  border: #ff7a59 solid 1px;
+  background: #fff;
 }

@@ -19,7 +19,9 @@ const FolderListMain = () => {
                 </Link>
               );
             })}
+            <Link to="/addFolder">
             <button className="folderListBtn">Add Folder</button>
+            </Link>
           </div>
         )}
       </AppContext.Consumer>

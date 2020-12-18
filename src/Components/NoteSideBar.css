@@ -10,6 +10,7 @@
     margin-top: 50px;
     position: relative;
     background-color: #2a9d8f;
+    color: white;
     border-radius: 0 6px 6px 6px;
     text-align: center;
 }
@@ -24,3 +25,21 @@
     top: -12px;
     left: 0px;
 }
+
+.backBtn {
+    border: none;
+    background: #ff7a59;
+    color: #fff;
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 500ms ease;
+  }
+  
+  .backBtn:hover {
+    color: #ff7a59;
+    border: #ff7a59 solid 1px;
+    background: #fff;
+  }

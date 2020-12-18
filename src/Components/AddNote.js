@@ -32,14 +32,14 @@ class AddNote extends Component {
         modified: this.state.modified,
       }),
     })
-      .then((response) => {
+      .then(response => {
         if (!response.ok) {
           return response.json().then((event) => Promise.reject(event));
         } else {
           return response.json();
         }
       })
-      .then((responseJson) => {
+      .then(responseJson => {
         this.context.handleAddNote(responseJson);
         this.props.history.goBack();
       })
@@ -83,8 +83,8 @@ class AddNote extends Component {
         <form className="addNoteMenu" onSubmit={(e) => this.handleAddNote(e)}>
           <label htmlFor="noteNameInput">Note Name:</label>
           <input
-            type="text"
             className="noteNameInput"
+            id="name"
             name="noteNameInput"
             placeholder="Enter name here"
             onChange={(e) => this.updateForm(e)}
@@ -95,6 +95,7 @@ class AddNote extends Component {
           <label htmlFor="noteDetail">Note Details:</label>
           <textarea
             className="noteDetail"
+            id="content"
             name="noteDetail"
             rows="4"
             cols="50"

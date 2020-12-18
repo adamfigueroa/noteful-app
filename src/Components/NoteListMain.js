@@ -7,7 +7,7 @@ import "./NoteListMain.css";
 class NoteListMain extends Component {
   static contextType = AppContext;
 
-  handleDelete = (noteId) => {
+  handleDeleteNote = (noteId) => {
     const urlDelete = `http://localhost:9090/notes/${noteId}`;
     fetch(urlDelete, {
       method: "DELETE",
@@ -19,7 +19,7 @@ class NoteListMain extends Component {
         if (!response.ok) {
           throw new Error(response.status);
         } else {
-          this.context.handleDelete(noteId);
+          this.context.handleDeleteNote(noteId);
         }
       })
       .catch((error) => console.log(error));
@@ -33,12 +33,12 @@ class NoteListMain extends Component {
 
       return (
         <li className="note" key={note.id}>
-          <div>
-            <Link to={`/note/${note.id}`}>
-              <h2>{note.name}</h2>
-            </Link>
+          <div className="noteItem">
+            <h2 className="noteName">
+              <Link to={`/note/${note.id}`}>{note.name}</Link>
+            </h2>
             <p>Last change: {dateNormalizer}</p>
-            <button onClick={() => this.handleDelete(note.id)}>Delete</button>
+            <button className="deleteNoteBtn" onClick={() => this.handleDeleteNote(note.id)}>Delete</button>
           </div>
         </li>
       );
@@ -47,7 +47,9 @@ class NoteListMain extends Component {
     return (
       <div className="noteBox">
         <ul className="noteList">{noteArray}</ul>
-        <button>Add Note</button>
+        <Link to="/addNote">
+        <button className="addNoteBtn">Add Note</button>
+        </Link>
       </div>
     );
   }

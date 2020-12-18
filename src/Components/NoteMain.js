@@ -19,9 +19,10 @@ class NoteMain extends Component {
         if (!response.ok) {
           throw new Error(response.status);
         } else {
-          this.context.handleDelete(noteId);
+          this.context.handleDeleteNote(noteId);
         }
       })
+      .then(() => this.props.history.goBack())
       .catch((error) => console.log(error));
   };
 
@@ -30,7 +31,7 @@ class NoteMain extends Component {
   const noteId = this.props.match.params.noteId;
   let note = notes.find((note) => note.id === noteId) || {
     id: noteId,
-    modified: Date.now(),
+    modified: new Date().toISOString(),
   };
 
   let date = new Date(note.modified);
@@ -45,7 +46,7 @@ class NoteMain extends Component {
         <p>Last change: {dateNormalizer}</p>
       </div>
       <div className="noteDetail">{note.content}</div>
-      <button onClick={() => this.handleDelete(note.id)}>Delete</button>
+      <button className="deleteBtn" onClick={() => this.handleDelete(note.id)}>Delete</button>
     </section>
   );
 }

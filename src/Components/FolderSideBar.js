@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import AppContext from "../AppContext";
 
 const FolderSideBar = () => {
@@ -19,7 +19,9 @@ const FolderSideBar = () => {
               </NavLink>
             );
           })}
+          <Link to="/addFolder">
           <button className="folderListBtn">Add Folder</button>
+          </Link>
         </div>
       )}
     </AppContext.Consumer>

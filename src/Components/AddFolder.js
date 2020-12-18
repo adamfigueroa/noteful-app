@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AppContext from "../AppContext";
-
+import './AddFolder.css'
 class AddFolder extends Component {
   state = { folderName: "" };
 
@@ -35,6 +35,16 @@ class AddFolder extends Component {
       .catch(() => alert("Something went wrong"));
   };
 
+  folderValidator = () => {
+    if (this.state.folderName === "") {
+      return true;
+    }
+  };
+
+  updateForm = (event) => {
+    this.setState({ [event.target.id]: event.target.value, touched: true });
+  };
+
   render() {
     return (
       <div className="addFolderBox">
@@ -44,12 +54,15 @@ class AddFolder extends Component {
         >
           <label htmlFor="nameInput">Folder Name</label>
           <input
-            type="text"
             className="nameInput"
             name="nameInput"
-            onChange={this.folderNameValue}
+            id="folderName"
+            onChange={this.updateForm}
           ></input>
-          <button className="submit">Add Folder</button>
+          {this.folderValidator() && this.state.touched && (
+            <p className="warningBox">Don't forget to add a name!</p>
+          )}
+          <button className="submit" disabled={this.folderValidator()}>Add Folder</button>
         </form>
         <button className="backBtn" onClick={this.props.history.goBack}>Go Back</button>
       </div>
