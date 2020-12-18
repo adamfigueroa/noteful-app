@@ -10,6 +10,8 @@ import NoteMain from "./Components/NoteMain";
 import AppContext from "./AppContext";
 import AddFolder from "./Components/AddFolder";
 import AddNote from "./Components/AddNote";
+import FolderListError from "./Components/FolderListError"
+import NoteListError from "./Components/NoteListError"
 
 class App extends Component {
   state = {
@@ -83,15 +85,19 @@ class App extends Component {
           <Route path="/addNote" exact component={AddNote} />
           <div className="bodyBox">
             <section className="sideBarBox">
+              <FolderListError>
               <Route path="/" exact component={FolderListMain} />
               <Route path="/folder/:folderId" component={FolderSideBar} />
               <Route path="/note/:noteId" component={NoteSideBar} />
+              </FolderListError>
             </section>
             <section className="noteViewBox">
               <Switch>
+              <NoteListError>
                 <Route path="/" exact component={NoteListMain} />
                 <Route path="/folder/:folderId" component={FolderMain} />
                 <Route path="/note/:noteId" component={NoteMain} />
+              </NoteListError>
               </Switch>
             </section>
           </div>
