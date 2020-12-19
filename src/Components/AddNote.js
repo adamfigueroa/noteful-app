@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import AppContext from "../AppContext";
+import PropTypes from 'prop-types';
 import "./AddNote.css"
 
 class AddNote extends Component {
+  static defaultProps = {
+    history: { goBack: () => {} },
+  };
   state = {
     name: "",
     content: "",
@@ -122,6 +126,10 @@ class AddNote extends Component {
       </div>
     );
   }
+}
+
+AddNote.propTypes = {
+  history: PropTypes.object.isRequired,
 }
 
 export default AddNote;

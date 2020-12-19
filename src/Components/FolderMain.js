@@ -19,7 +19,7 @@ class FolderMain extends Component {
         if (!response.ok) {
           throw new Error(response.status);
         } else {
-          this.context.handleDelete(noteId);
+          this.context.handleDeleteNote(noteId);
         }
       })
       .catch((error) => console.log(error));
