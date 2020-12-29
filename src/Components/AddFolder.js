@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import AppContext from "../AppContext";
-import PropTypes from 'prop-types';
-import './AddFolder.css'
+import PropTypes from "prop-types";
+import "./AddFolder.css";
 
 class AddFolder extends Component {
   static defaultProps = {
-    history: { goBack: () => {} }
-  }
+    history: { goBack: () => {} },
+  };
   state = { folderName: "" };
 
   static contextType = AppContext;
@@ -25,14 +25,14 @@ class AddFolder extends Component {
       },
       body: JSON.stringify({ name: this.state.folderName }),
     })
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           return response.json().then((event) => Promise.reject(event));
         } else {
           return response.json();
         }
       })
-      .then(responseJson => {
+      .then((responseJson) => {
         this.context.handleAddFolder(responseJson);
         this.setState({ folderName: "" });
         this.props.history.goBack();
@@ -67,16 +67,20 @@ class AddFolder extends Component {
           {this.folderValidator() && this.state.touched && (
             <p className="warningBox">Don't forget to add a name!</p>
           )}
-          <button className="submit" disabled={this.folderValidator()}>Add Folder</button>
+          <button className="submit" disabled={this.folderValidator()}>
+            Add Folder
+          </button>
         </form>
-        <button className="backBtn" onClick={this.props.history.goBack}>Go Back</button>
+        <button className="backBtn" onClick={this.props.history.goBack}>
+          Go Back
+        </button>
       </div>
     );
   }
-}
+};
 
 AddFolder.propTypes = {
   history: PropTypes.object.isRequired,
-}
+};
 
 export default AddFolder;

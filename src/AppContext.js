@@ -1,13 +1,13 @@
-import { createContext } from "react"
+import { createContext } from "react";
 
 const AppContext = createContext({
-    folders: [],
-    notes: [],
-    handleDeleteNote: () => {},
-    handleAddFolder: () => {},
-    handleAddNote: () => {},
+  folders: [],
+  notes: [],
+  handleDeleteNote: () => {},
+  handleAddFolder: () => {},
+  handleAddNote: () => {},
 });
 
-AppContext.displayName = 'AppContext';
+AppContext.displayName = "AppContext";
 
-export default AppContext
+export default AppContext;

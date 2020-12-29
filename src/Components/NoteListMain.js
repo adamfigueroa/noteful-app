@@ -38,7 +38,12 @@ class NoteListMain extends Component {
               <Link to={`/note/${note.id}`}>{note.name}</Link>
             </h2>
             <p>Last change: {dateNormalizer}</p>
-            <button className="deleteNoteBtn" onClick={() => this.handleDeleteNote(note.id)}>Delete</button>
+            <button
+              className="deleteNoteBtn"
+              onClick={() => this.handleDeleteNote(note.id)}
+            >
+              Delete
+            </button>
           </div>
         </li>
       );
@@ -48,11 +53,11 @@ class NoteListMain extends Component {
       <div className="noteBox">
         <ul className="noteList">{noteArray}</ul>
         <Link to="/addNote">
-        <button className="addNoteBtn">Add Note</button>
+          <button className="addNoteBtn">Add Note</button>
         </Link>
       </div>
     );
   }
-}
+};
 
 export default NoteListMain;

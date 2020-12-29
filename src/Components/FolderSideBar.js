@@ -20,7 +20,7 @@ const FolderSideBar = () => {
             );
           })}
           <Link to="/addFolder">
-          <button className="folderListBtn">Add Folder</button>
+            <button className="folderListBtn">Add Folder</button>
           </Link>
         </div>
       )}

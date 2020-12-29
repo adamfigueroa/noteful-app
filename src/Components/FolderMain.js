@@ -37,12 +37,15 @@ class FolderMain extends Component {
         <li className="note" key={note.id}>
           <div className="noteItem">
             <h2 className="noteName">
-              <Link to={`/note/${note.id}`}>
-                {note.name}
-              </Link>
+              <Link to={`/note/${note.id}`}>{note.name}</Link>
             </h2>
             <p>Last change: {dateNormalizer}</p>
-            <button className="deleteNoteBtn" onClick={() => this.handleDeleteNote(note.id)}>Delete</button>
+            <button
+              className="deleteNoteBtn"
+              onClick={() => this.handleDeleteNote(note.id)}
+            >
+              Delete
+            </button>
           </div>
         </li>
       );
@@ -50,16 +53,14 @@ class FolderMain extends Component {
 
     return (
       <div className="noteBox">
-        {noteArray.length === 0 && (
-          <p>Folder Empty</p>
-        )}
+        {noteArray.length === 0 && <p>Folder Empty</p>}
         <ul className="noteList">{noteArray}</ul>
         <Link to="/addNote">
-        <button className="addNoteBtn">Add Note</button>
+          <button className="addNoteBtn">Add Note</button>
         </Link>
       </div>
     );
   }
-}
+};
 
 export default FolderMain;

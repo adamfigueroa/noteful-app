@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AppContext from "../AppContext";
-import PropTypes from 'prop-types';
-import "./AddNote.css"
+import PropTypes from "prop-types";
+import "./AddNote.css";
 
 class AddNote extends Component {
   static defaultProps = {
@@ -36,14 +36,14 @@ class AddNote extends Component {
         modified: this.state.modified,
       }),
     })
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           return response.json().then((event) => Promise.reject(event));
         } else {
           return response.json();
         }
       })
-      .then(responseJson => {
+      .then((responseJson) => {
         this.context.handleAddNote(responseJson);
         this.props.history.goBack();
       })
@@ -73,10 +73,22 @@ class AddNote extends Component {
 
   componentDidMount() {
     this.handleModified();
-  }
+  };
 
   nameValidator = () => {
     if (this.state.name === "") {
+      return true;
+    }
+  };
+
+  contentValidator = () => {
+    if (this.state.content === "") {
+      return true;
+    }
+  };
+
+  folderValidator = () => {
+    if (this.state.folderId === "") {
       return true;
     }
   };
@@ -115,7 +127,14 @@ class AddNote extends Component {
             {this.folderOptions()}
           </select>
           <div>
-            <button className="submitNote" disabled={this.nameValidator()}>
+            <button
+              className="submitNote"
+              disabled={
+                this.nameValidator() ||
+                this.contentValidator() ||
+                this.folderValidator()
+              }
+            >
               Submit Note
             </button>
           </div>
@@ -126,10 +145,10 @@ class AddNote extends Component {
       </div>
     );
   }
-}
+};
 
 AddNote.propTypes = {
   history: PropTypes.object.isRequired,
-}
+};
 
 export default AddNote;
