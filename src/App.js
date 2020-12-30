@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
+import PropTypes from "prop-types"
 import Header from "./Components/Header";
 import FolderListMain from "./Components/FolderListMain";
 import NoteListMain from "./Components/NoteListMain";
@@ -106,6 +107,11 @@ class App extends Component {
       </main>
     );
   }
+};
+
+App.propTypes = {
+  folders: PropTypes.array,
+  notes: PropTypes.array,
 };
 
 export default App;

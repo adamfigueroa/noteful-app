@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types"
 
 class NoteListError extends Component {
   state = { hasError: false };
@@ -19,5 +20,9 @@ class NoteListError extends Component {
     return this.props.children;
   }
 };
+
+NoteListError.propTypes = {
+  hasError: PropTypes.bool
+}
 
 export default withRouter(NoteListError);

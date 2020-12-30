@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { format } from "date-fns";
+import PropTypes from "prop-types";
 import AppContext from "../AppContext";
 import "./NoteMain.css";
 
@@ -54,6 +55,10 @@ class NoteMain extends Component {
       </section>
     );
   }
+};
+
+NoteMain.propTypes = {
+  noteId: PropTypes.string,
 };
 
 export default NoteMain;

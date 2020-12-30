@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import AppContext from "../AppContext";
+import PropTypes from "prop-types";
 import "./FolderMain.css";
 
 class FolderMain extends Component {
@@ -62,5 +63,9 @@ class FolderMain extends Component {
     );
   }
 };
+
+FolderMain.propTypes = {
+  folderId: PropTypes.string
+}
 
 export default FolderMain;

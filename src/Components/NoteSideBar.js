@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types"
 import AppContext from "../AppContext";
 import "./NoteSideBar.css";
 
@@ -25,6 +26,11 @@ class NoteSideBar extends Component {
       </div>
     );
   }
+};
+
+NoteSideBar.propTypes = {
+  currentNoteId: PropTypes.string,
+  currentFolderId: PropTypes.string
 };
 
 export default NoteSideBar;

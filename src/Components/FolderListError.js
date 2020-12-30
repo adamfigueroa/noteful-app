@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class FolderListError extends Component {
   state = { hasError: false };
@@ -19,5 +20,9 @@ class FolderListError extends Component {
     return this.props.children;
   }
 };
+
+FolderListError.propTypes = {
+  hasError: PropTypes.string
+}
 
 export default withRouter(FolderListError);

@@ -148,7 +148,11 @@ class AddNote extends Component {
 };
 
 AddNote.propTypes = {
-  history: PropTypes.object.isRequired,
+  name: PropTypes.string,
+  content: PropTypes.string, 
+  folderId: PropTypes.string,
+  modified: PropTypes.string,
+  touched: PropTypes.bool,
 };
 
 export default AddNote;

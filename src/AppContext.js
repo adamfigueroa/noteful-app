@@ -1,4 +1,5 @@
 import { createContext } from "react";
+import PropTypes from "prop-types"
 
 const AppContext = createContext({
   folders: [],
@@ -9,5 +10,13 @@ const AppContext = createContext({
 });
 
 AppContext.displayName = "AppContext";
+
+AppContext.propTypes = {
+  folders: PropTypes.array,
+  notes: PropTypes.array,
+  handleDeleteNote: PropTypes.func,
+  handleAddFolder: PropTypes.func,
+  handleAddNote: PropTypes.func,
+}
 
 export default AppContext;

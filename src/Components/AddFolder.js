@@ -80,6 +80,7 @@ class AddFolder extends Component {
 };
 
 AddFolder.propTypes = {
+  folderName: PropTypes.string,
   history: PropTypes.object.isRequired,
 };
 
